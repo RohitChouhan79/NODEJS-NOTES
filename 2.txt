@@ -1,0 +1,13 @@
+html -> html 
+ejs -> view engine/ template engine
+to embed js in html we use ejs view engine
+
+how to print a variable or expression
+<%= expression %>
+
+how to use if/else or loop or statement
+<% statement %>
+
+-you will see async function error or closing/opening matching tag not found error in case ejs is not correct
+
+<%- include('another ejs file')%>

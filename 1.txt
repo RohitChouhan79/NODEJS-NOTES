@@ -1,0 +1,21 @@
+Installing Express Boilerplate
+npm i -g express-generator
+
+--Creating Boilerplate
+express foldername --view=ejs
+cd foldername
+npm install
+
+--open vs code
+code .
+
+-- to run server
+npm start
+
+--to see in browser
+http://localhost:3000
+
+
+--in case of  load script error
+Set-ExecutionPolicy RemoteSigned  
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 

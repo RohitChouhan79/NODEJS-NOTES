@@ -1,0 +1,32 @@
+UPLOADIG MULTIMEDIA in node app
+
+1. create a form and create and input of type file -> (/upload -> POST)
+
+2. in form attribute use -> encType="multipart/formdata"(will enable to upload multimedia)
+
+3. create a file "multer.js" in it there will be the code of multer boilerplate
+mainly destination of file/filename modify and file filter to valide file and the code will export "upload" object, which we require in "index.js"
+
+CODE: code in multer.js file (attached)
+
+4. in "index.js" -> /upload post route,  we need to write the code to upload file
+in the middleware we write ->  
+
+CODE: upload.single("avatar") 
+
+or to handle error
+
+CODE: The code below will handle the error and send the imagefile name to database
+ upload(req, res, async function (err) {
+        if (err) throw err;
+        try {
+            const media = new Media({
+                avatar: req.file.filename,
+            });
+            await media.save();
+            res.redirect("/");
+        } catch (error) {
+            res.send(error);
+        }
+    });
+

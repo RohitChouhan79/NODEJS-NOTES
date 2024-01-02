@@ -1,0 +1,13 @@
+TO validate schema in model 
+
+we have 
+type: Datatype
+trim: true
+unique: true
+maxlength: [val,message]
+minlength: [val,message]
+required: [true, message]
+default: val
+match: [/regex/, message]
+
+and {timestamps:true} in second parameter of schema

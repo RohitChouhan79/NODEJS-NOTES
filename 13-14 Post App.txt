@@ -1,0 +1,47 @@
+Post App Thirteen
+
+(Part - I)
+
+1. Create Naviagtion
+Home(/) | Create Post(/create-post) | Read Posts(/read-posts)
+**Use Patrials
+
+2. In Create Post(ejs) -> Create a form includes(profileimage,name,title, subtitle, posttext, postimage) 
+action="/cretae-post" method="POST"
+
+3. Create a global varibale "var POSTS=[]" in index.js
+ and create "/create-post" post route, in it we get the form data in "req.body", push the data in global varibale "POSTS.push({...req.body, date, like})" and redirect to "/read-posts"
+
+router.post("/create-post", function(req, res, next){
+	const post ={
+		...req.body, 
+		date: new Date(), 
+		like: 0 
+	}
+	POSTS.push(post)
+})
+	
+
+4. Create "/read-posts" get route and render "Read Posts" ejs where we send POSTS in second argument of render and in ejs we show the data in the form of cards using foreach, given in the image.
+
+
+5. In "Read Posts" ejs page where we rendered array with the help of foreach, create 2 "a tags" update and delete , delete must go to  "/delete/:index"(dynamic get route) in the same route we splice the POSTS via (req.params.index) to delete the selected data and redirect to "/read-post".
+
+6. In "Read Posts" ejs page when user click update send to  "/update/:index" (get dynamic route) where in the same route find the corrosponding post with the index and render the "Update.ejs" page and send the post,index to the second parameter of the the render
+
+7. In Update.ejs create form and user value attribute to auto fill post information and when user click Submit/update it must go to "/update/:index"(dynamic post route)
+where the post data must overwrite the POSTS[req.params.index] = req.body and redirect to "/read-post"
+
+8. In "Read Posts" ejs page there will be a like "a tag" and the count of like beside "a tag" will be shown, when the user click the like button it mut go to "/like/:index"(dynamic get route), in the same route we have to find the data via index(post = POSTS[req.params.index]) and increase the count of like ans again overwrite it in the same index (post.like += 1; POSTS[req.params.index] = post) and redirect it to "/read-posts"
+
+
+
+
+
+
+
+
+
+
+
+
